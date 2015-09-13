@@ -26,3 +26,21 @@ var uniqueInOrder=function(iterable){
 console.log(uniqueInOrder('AAAABBBCCDAABBB')); // == ['A', 'B', 'C', 'D', 'A', 'B']
 console.log(uniqueInOrder('ABBCcAD'));         // == ['A', 'B', 'C', 'c', 'A', 'D']
 console.log(uniqueInOrder([1,2,2,3,3]));       // == [1,2,3]
+
+
+// clever //
+
+function uniqueInOrder(it) {
+  var result = []
+  var last
+  
+  // you can iterate over strings without a check
+  for (var i = 0; i < it.length; i++) {
+    if (it[i] !== last) {
+    	// both push and assign last at the same time
+      result.push(last = it[i])
+    }
+  }
+  
+  return result
+}
